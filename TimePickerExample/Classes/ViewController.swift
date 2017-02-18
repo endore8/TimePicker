@@ -9,7 +9,9 @@
 import TimePicker
 import UIKit
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
+    
+    @IBOutlet fileprivate weak var timePicker: TimePicker!
 
     override func viewDidLoad() {
         super.viewDidLoad()
