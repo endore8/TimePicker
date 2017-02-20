@@ -10,8 +10,6 @@ import Foundation
 
 extension TimeInterval {
     
-    typealias TimeFormat = (hour: String, minute: String, period: String?)
-    
     private var includePeriod: Bool {
         return DateFormatter
             .dateFormat(fromTemplate: "j", options: 0, locale: Locale.current)!

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9E0E82751E58EDC200F05C21 /* TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0E82741E58EDC200F05C21 /* TimeInterval.swift */; };
+		9E0E82771E5B3B7000F05C21 /* TimeFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0E82761E5B3B7000F05C21 /* TimeFormat.swift */; };
 		9E3F66051E55E7AC007509DF /* TimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3F66011E55E7AC007509DF /* TimePicker.swift */; };
 		9E3F66081E55E83A007509DF /* TimePicker.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E3F66071E55E83A007509DF /* TimePicker.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9E3F661F1E55E8B6007509DF /* TimePickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3F661E1E55E8B6007509DF /* TimePickerTests.swift */; };
@@ -35,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		9E0E82741E58EDC200F05C21 /* TimeInterval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeInterval.swift; sourceTree = "<group>"; };
+		9E0E82761E5B3B7000F05C21 /* TimeFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeFormat.swift; sourceTree = "<group>"; };
 		9E3F65E31E55E727007509DF /* TimePicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TimePicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E3F66011E55E7AC007509DF /* TimePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimePicker.swift; sourceTree = "<group>"; };
 		9E3F66031E55E7AC007509DF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				9E3F66501E571EBA007509DF /* NSLayoutConstraints.swift */,
 				9E3F66521E5726F7007509DF /* TimeCalculator.swift */,
 				9E0E82741E58EDC200F05C21 /* TimeInterval.swift */,
+				9E0E82761E5B3B7000F05C21 /* TimeFormat.swift */,
 				9E3F66011E55E7AC007509DF /* TimePicker.swift */,
 				9E3F664E1E5605E3007509DF /* TimePickerScrollView.swift */,
 			);
@@ -316,6 +319,7 @@
 				9E3F66531E5726F7007509DF /* TimeCalculator.swift in Sources */,
 				9E0E82751E58EDC200F05C21 /* TimeInterval.swift in Sources */,
 				9E3F66511E571EBA007509DF /* NSLayoutConstraints.swift in Sources */,
+				9E0E82771E5B3B7000F05C21 /* TimeFormat.swift in Sources */,
 				9E3F664F1E5605E3007509DF /* TimePickerScrollView.swift in Sources */,
 				9E3F66051E55E7AC007509DF /* TimePicker.swift in Sources */,
 			);

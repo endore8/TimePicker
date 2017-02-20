@@ -60,7 +60,7 @@ open class TimePicker: UIView {
             [unowned self]
             delta in
             
-            print("delta \(delta)")
+            self.calculator.update(percentageChange: delta / self.bounds.height)
         }
         
         return view
@@ -99,13 +99,13 @@ extension TimePicker {
     @objc fileprivate func handlePressGesture(_ gesture: UILongPressGestureRecognizer) {
         switch gesture.state {
         case .began:
-            gesture.hasUpperLocationType(in: self) ? calculator.beginGradualIncrementation() : calculator.beginGradualDecrementation()
+            gesture.hasUpperLocationType(in: self) ? calculator.beginContinuousIncrementation() : calculator.beginContinuousDecrementation()
             
         case .changed:
             ()
             
         default:
-            calculator.stopGradualUpdates()
+            calculator.stopContinuousUpdates()
         }
     }
     

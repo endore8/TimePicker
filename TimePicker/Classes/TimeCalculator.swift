@@ -17,7 +17,11 @@ final class TimeCalculator {
     var didUpdateTime: ((TimeInterval) -> ())?
     
     fileprivate(set) var time: TimeInterval = InitialTime {
-        didSet { didUpdateTime?(time) }
+        didSet {
+            guard oldValue.timeFormat() != time.timeFormat() else { return }
+            
+            didUpdateTime?(time)
+        }
     }
     
     private var initialTimeValue = InitialTime
@@ -47,30 +51,78 @@ final class TimeCalculator {
     }
     
     fileprivate var timer: Timer?
+    fileprivate var incrementationStep: TimeInterval?
     
 }
 
 extension TimeCalculator {
     
     func increment() {
-        time += minTimeChangeStep * 60
+        time += minTimeChangeStep.minutes
     }
     
     func decrement() {
-        time -= minTimeChangeStep * 60
+        time -= minTimeChangeStep.minutes
     }
     
 }
 
 extension TimeCalculator {
     
-    func beginGradualIncrementation() {
+    func beginContinuousIncrementation() {
+        stopContinuousUpdates()
+        
+        incrementationStep = minTimeChangeStep
+        
+        scheduleTimer()
     }
     
-    func beginGradualDecrementation() {
+    func beginContinuousDecrementation() {
+        stopContinuousUpdates()
+        
+        incrementationStep = -minTimeChangeStep
+        
+        scheduleTimer()
     }
     
-    func stopGradualUpdates() {
+    func stopContinuousUpdates() {
+        stopTimer()
+        incrementationStep = nil
+    }
+
+    private func scheduleTimer() {
+        timer = Timer.scheduledTimer(withTimeInterval: 0.15, repeats: true, block: {
+            [weak self]
+            (_) in
+            
+            guard let sself = self, let step = sself.incrementationStep else { return }
+            
+            sself.time += step.minutes
+        })
+        timer?.fire()
+    }
+    
+    private func stopTimer() {
+        timer?.invalidate()
+        timer = nil
+    }
+    
+}
+
+extension TimeCalculator {
+    
+    func update(percentageChange change: CGFloat) {
+        time += TimeInterval(change * 100).minutes
+    }
+    
+}
+
+extension TimeInterval {
+    
+    var minutes: TimeInterval {
+        guard (TimeInterval(0)..<60).contains(abs(self)) else { return self }
+        
+        return self * 60
     }
     
 }
