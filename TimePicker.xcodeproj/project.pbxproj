@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E7653A11EAD05C200AB0F4A /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E76539F1EAD05C200AB0F4A /* Nimble.framework */; };
+		1E7653A21EAD05C200AB0F4A /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E7653A01EAD05C200AB0F4A /* Quick.framework */; };
 		9E0E82751E58EDC200F05C21 /* TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0E82741E58EDC200F05C21 /* TimeInterval.swift */; };
 		9E0E82771E5B3B7000F05C21 /* TimeFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0E82761E5B3B7000F05C21 /* TimeFormat.swift */; };
 		9E3F66051E55E7AC007509DF /* TimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3F66011E55E7AC007509DF /* TimePicker.swift */; };
@@ -35,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E76539F1EAD05C200AB0F4A /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = "Carthage/Checkouts/Nimble/build/Debug-iphoneos/Nimble.framework"; sourceTree = "<group>"; };
+		1E7653A01EAD05C200AB0F4A /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = "Carthage/Checkouts/Quick/build/Debug-iphoneos/Quick.framework"; sourceTree = "<group>"; };
 		9E0E82741E58EDC200F05C21 /* TimeInterval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeInterval.swift; sourceTree = "<group>"; };
 		9E0E82761E5B3B7000F05C21 /* TimeFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeFormat.swift; sourceTree = "<group>"; };
 		9E3F65E31E55E727007509DF /* TimePicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TimePicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,6 +72,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E7653A11EAD05C200AB0F4A /* Nimble.framework in Frameworks */,
+				1E7653A21EAD05C200AB0F4A /* Quick.framework in Frameworks */,
 				9E3F66211E55E8B6007509DF /* TimePicker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -83,6 +89,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1E76539E1EAD05C200AB0F4A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1E76539F1EAD05C200AB0F4A /* Nimble.framework */,
+				1E7653A01EAD05C200AB0F4A /* Quick.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		9E3F65D91E55E727007509DF = {
 			isa = PBXGroup;
 			children = (
@@ -90,6 +105,7 @@
 				9E3F661D1E55E8B6007509DF /* TimePickerTests */,
 				9E3F662C1E55E94A007509DF /* TimePickerExample */,
 				9E3F65E41E55E727007509DF /* Products */,
+				1E76539E1EAD05C200AB0F4A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -513,6 +529,11 @@
 		9E3F66251E55E8B6007509DF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Checkouts/Nimble/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/Carthage/Checkouts/Quick/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = TimePickerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.olehst.TimePickerTests;
@@ -524,6 +545,11 @@
 		9E3F66261E55E8B6007509DF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Checkouts/Nimble/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/Carthage/Checkouts/Quick/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = TimePickerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.olehst.TimePickerTests;
