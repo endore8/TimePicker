@@ -2,7 +2,7 @@
 //  TimeCalculator.swift
 //  TimePicker
 //
-//  Created by Oleg Stasula on 17/02/2017.
+//  Created by Oleh Stasula on 17/02/2017.
 //  Copyright © 2017 Oleh Stasula. All rights reserved.
 //
 
