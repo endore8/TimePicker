@@ -53,17 +53,8 @@ open class TimePicker: UIView {
         
         return calculator
     }()
-    fileprivate lazy var scrollView: TimePickerScrollView = {
-        let view = TimePickerScrollView()
-    
-        view.didChangeOffsetCallback = {
-            [unowned self]
-            delta in
-            
-            self.calculator.update(percentageChange: delta / self.bounds.height)
-        }
-        
-        return view
+    fileprivate lazy var panGestureRecognizer: UIPanGestureRecognizer = {
+        UIPanGestureRecognizer(target: self, action: .handlePanGesture)
     }()
     fileprivate lazy var pressGestureRecognizer: UILongPressGestureRecognizer = {
         UILongPressGestureRecognizer(target: self, action: .handlePressGesture)
@@ -95,6 +86,9 @@ open class TimePicker: UIView {
 }
 
 extension TimePicker {
+    
+    @objc fileprivate func handlePanGesture(_ gesture: UIPanGestureRecognizer) {
+    }
     
     @objc fileprivate func handlePressGesture(_ gesture: UILongPressGestureRecognizer) {
         switch gesture.state {
@@ -185,9 +179,9 @@ extension TimePicker {
 extension TimePicker {
     
     fileprivate func setupGestures() {
+        addGestureRecognizer(panGestureRecognizer)
         addGestureRecognizer(pressGestureRecognizer)
         addGestureRecognizer(tapGestureRecognizer)
-        addGestureRecognizer(scrollView.panGestureRecognizer)
     }
     
 }
@@ -211,6 +205,7 @@ extension UIGestureRecognizer {
 
 extension Selector {
     
+    fileprivate static let handlePanGesture = #selector(TimePicker.handlePanGesture(_:))
     fileprivate static let handlePressGesture = #selector(TimePicker.handlePressGesture(_:))
     fileprivate static let handleTapGesture = #selector(TimePicker.handleTapGesture(_:))
     

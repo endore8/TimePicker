@@ -21,7 +21,6 @@
 		9E3F664A1E55E96B007509DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E3F66421E55E96B007509DF /* LaunchScreen.storyboard */; };
 		9E3F664B1E55E96B007509DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E3F66441E55E96B007509DF /* Main.storyboard */; };
 		9E3F664D1E55EB25007509DF /* TimePicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E3F65E31E55E727007509DF /* TimePicker.framework */; };
-		9E3F664F1E5605E3007509DF /* TimePickerScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3F664E1E5605E3007509DF /* TimePickerScrollView.swift */; };
 		9E3F66511E571EBA007509DF /* NSLayoutConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3F66501E571EBA007509DF /* NSLayoutConstraints.swift */; };
 		9E3F66531E5726F7007509DF /* TimeCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3F66521E5726F7007509DF /* TimeCalculator.swift */; };
 /* End PBXBuildFile section */
@@ -55,7 +54,6 @@
 		9E3F66431E55E96B007509DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9E3F66451E55E96B007509DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9E3F66461E55E96B007509DF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9E3F664E1E5605E3007509DF /* TimePickerScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimePickerScrollView.swift; sourceTree = "<group>"; };
 		9E3F66501E571EBA007509DF /* NSLayoutConstraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSLayoutConstraints.swift; sourceTree = "<group>"; };
 		9E3F66521E5726F7007509DF /* TimeCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeCalculator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -137,7 +135,6 @@
 				9E0E82741E58EDC200F05C21 /* TimeInterval.swift */,
 				9E0E82761E5B3B7000F05C21 /* TimeFormat.swift */,
 				9E3F66011E55E7AC007509DF /* TimePicker.swift */,
-				9E3F664E1E5605E3007509DF /* TimePickerScrollView.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -336,7 +333,6 @@
 				9E0E82751E58EDC200F05C21 /* TimeInterval.swift in Sources */,
 				9E3F66511E571EBA007509DF /* NSLayoutConstraints.swift in Sources */,
 				9E0E82771E5B3B7000F05C21 /* TimeFormat.swift in Sources */,
-				9E3F664F1E5605E3007509DF /* TimePickerScrollView.swift in Sources */,
 				9E3F66051E55E7AC007509DF /* TimePicker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
