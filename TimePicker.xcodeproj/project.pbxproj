@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1E7653A11EAD05C200AB0F4A /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E76539F1EAD05C200AB0F4A /* Nimble.framework */; };
 		1E7653A21EAD05C200AB0F4A /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E7653A01EAD05C200AB0F4A /* Quick.framework */; };
+		1EACE57E1EC9E89100A26022 /* TimePicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E3F65E31E55E727007509DF /* TimePicker.framework */; };
+		1EACE57F1EC9E89100A26022 /* TimePicker.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9E3F65E31E55E727007509DF /* TimePicker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9E0E82751E58EDC200F05C21 /* TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0E82741E58EDC200F05C21 /* TimeInterval.swift */; };
 		9E0E82771E5B3B7000F05C21 /* TimeFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0E82761E5B3B7000F05C21 /* TimeFormat.swift */; };
 		9E3F66051E55E7AC007509DF /* TimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3F66011E55E7AC007509DF /* TimePicker.swift */; };
@@ -26,6 +28,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		1EACE5801EC9E89100A26022 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9E3F65DA1E55E727007509DF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9E3F65E21E55E727007509DF;
+			remoteInfo = TimePicker;
+		};
 		9E3F66221E55E8B6007509DF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9E3F65DA1E55E727007509DF /* Project object */;
@@ -34,6 +43,20 @@
 			remoteInfo = TimePicker;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1EACE5821EC9E89100A26022 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1EACE57F1EC9E89100A26022 /* TimePicker.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1E76539F1EAD05C200AB0F4A /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = "Carthage/Checkouts/Nimble/build/Debug-iphoneos/Nimble.framework"; sourceTree = "<group>"; };
@@ -81,6 +104,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E3F664D1E55EB25007509DF /* TimePicker.framework in Frameworks */,
+				1EACE57E1EC9E89100A26022 /* TimePicker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,10 +266,12 @@
 				9E3F66271E55E94A007509DF /* Sources */,
 				9E3F66281E55E94A007509DF /* Frameworks */,
 				9E3F66291E55E94A007509DF /* Resources */,
+				1EACE5821EC9E89100A26022 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				1EACE5811EC9E89100A26022 /* PBXTargetDependency */,
 			);
 			name = TimePickerExample;
 			productName = TimePickerExample;
@@ -264,6 +290,7 @@
 				TargetAttributes = {
 					9E3F65E21E55E727007509DF = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 3K4R6ZGH22;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
@@ -273,6 +300,7 @@
 					};
 					9E3F662A1E55E94A007509DF = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 3K4R6ZGH22;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -357,6 +385,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		1EACE5811EC9E89100A26022 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9E3F65E21E55E727007509DF /* TimePicker */;
+			targetProxy = 1EACE5801EC9E89100A26022 /* PBXContainerItemProxy */;
+		};
 		9E3F66231E55E8B6007509DF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 9E3F65E21E55E727007509DF /* TimePicker */;
@@ -488,15 +521,19 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 3K4R6ZGH22;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "$(SRCROOT)/TimePicker/Resources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.olehst.TimePicker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -508,15 +545,19 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 3K4R6ZGH22;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "$(SRCROOT)/TimePicker/Resources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.olehst.TimePicker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 			};
@@ -557,7 +598,9 @@
 		9E3F663B1E55E94A007509DF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 3K4R6ZGH22;
 				INFOPLIST_FILE = "$(SRCROOT)/TimePickerExample/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.olehst.TimePickerExample;
@@ -569,7 +612,9 @@
 		9E3F663C1E55E94A007509DF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 3K4R6ZGH22;
 				INFOPLIST_FILE = "$(SRCROOT)/TimePickerExample/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.olehst.TimePickerExample;
