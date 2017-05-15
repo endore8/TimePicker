@@ -116,13 +116,3 @@ extension TimeCalculator {
     }
     
 }
-
-extension TimeInterval {
-    
-    var minutes: TimeInterval {
-        guard (TimeInterval(0)..<60).contains(abs(self)) else { return self }
-        
-        return self * 60
-    }
-    
-}

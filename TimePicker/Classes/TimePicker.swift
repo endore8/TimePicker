@@ -186,23 +186,6 @@ extension TimePicker {
     
 }
 
-
-extension UIGestureRecognizer {
-    
-    fileprivate enum LocationType {
-        case upper, lower
-    }
-    
-    fileprivate func locationType(in view: UIView) -> LocationType {
-        return location(in: view).y < view.bounds.height / 2 ? .upper : .lower
-    }
-    
-    fileprivate func hasUpperLocationType(in view: UIView) -> Bool {
-        return locationType(in: view) == .upper
-    }
-    
-}
-
 extension Selector {
     
     fileprivate static let handlePanGesture = #selector(TimePicker.handlePanGesture(_:))
