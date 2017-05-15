@@ -18,6 +18,7 @@ final class TimeCalculator {
     
     fileprivate(set) var time: TimeInterval = InitialTime {
         didSet {
+            print("\(oldValue.timeFormat()) \(time.timeFormat()) \(oldValue.timeFormat() != time.timeFormat())")
             guard oldValue.timeFormat() != time.timeFormat() else { return }
             
             didUpdateTime?(time)
@@ -51,7 +52,7 @@ final class TimeCalculator {
     }
     
     fileprivate var timer: Timer?
-    fileprivate var incrementationStep: TimeInterval?
+    fileprivate var step: TimeInterval?
     
 }
 
@@ -59,50 +60,40 @@ extension TimeCalculator {
     
     func increment() {
         time += minTimeChangeStep.minutes
+        
+        if timer != nil {
+            step = minTimeChangeStep
+        }
     }
     
     func decrement() {
         time -= minTimeChangeStep.minutes
+        
+        if timer != nil {
+            step = -minTimeChangeStep
+        }
     }
     
 }
 
 extension TimeCalculator {
     
-    func beginContinuousIncrementation() {
-        stopContinuousUpdates()
+    func beginUpdates() {
+        guard timer == nil else { return }
         
-        incrementationStep = minTimeChangeStep
-        
-        scheduleTimer()
-    }
-    
-    func beginContinuousDecrementation() {
-        stopContinuousUpdates()
-        
-        incrementationStep = -minTimeChangeStep
-        
-        scheduleTimer()
-    }
-    
-    func stopContinuousUpdates() {
-        stopTimer()
-        incrementationStep = nil
-    }
-
-    private func scheduleTimer() {
         timer = Timer.scheduledTimer(withTimeInterval: 0.15, repeats: true, block: {
             [weak self]
             (_) in
             
-            guard let sself = self, let step = sself.incrementationStep else { return }
+            guard let sself = self, let step = sself.step else { return }
             
             sself.time += step.minutes
         })
         timer?.fire()
     }
     
-    private func stopTimer() {
+    func stopUpdates() {
+        step = nil
         timer?.invalidate()
         timer = nil
     }

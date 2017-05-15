@@ -93,13 +93,14 @@ extension TimePicker {
     @objc fileprivate func handlePressGesture(_ gesture: UILongPressGestureRecognizer) {
         switch gesture.state {
         case .began:
-            gesture.hasUpperLocationType(in: self) ? calculator.beginContinuousIncrementation() : calculator.beginContinuousDecrementation()
+            calculator.beginUpdates()
+            gesture.hasUpperLocationType(in: self) ? calculator.increment() : calculator.decrement()
             
         case .changed:
             ()
             
         default:
-            calculator.stopContinuousUpdates()
+            calculator.stopUpdates()
         }
     }
     

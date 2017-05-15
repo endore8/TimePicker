@@ -11,7 +11,7 @@ import Foundation
 typealias TimeFormat = (hour: String, minute: String, period: String?)
 
 func !=(t1: TimeFormat, t2: TimeFormat) -> Bool {
-    return (
+    return !(
         t1.hour == t2.hour &&
         t1.minute == t2.minute &&
         t1.period == t2.period
