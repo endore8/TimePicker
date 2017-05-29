@@ -88,6 +88,14 @@ open class TimePicker: UIView {
 extension TimePicker {
     
     @objc fileprivate func handlePanGesture(_ gesture: UIPanGestureRecognizer) {
+        guard point(inside: gesture.location(in: self), with: nil) else { return }
+        
+        let translation = gesture.translation(in: gesture.view).y
+        let velocity    = gesture.velocity(in: gesture.view).y
+        
+        guard velocity != 0 else { return }
+        
+        calculator.update(percentageChange: translation / bounds.height, velocity: velocity)
     }
     
     @objc fileprivate func handlePressGesture(_ gesture: UILongPressGestureRecognizer) {

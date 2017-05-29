@@ -18,7 +18,6 @@ final class TimeCalculator {
     
     fileprivate(set) var time: TimeInterval = InitialTime {
         didSet {
-            print("\(oldValue.timeFormat()) \(time.timeFormat()) \(oldValue.timeFormat() != time.timeFormat())")
             guard oldValue.timeFormat() != time.timeFormat() else { return }
             
             didUpdateTime?(time)
@@ -102,8 +101,10 @@ extension TimeCalculator {
 
 extension TimeCalculator {
     
-    func update(percentageChange change: CGFloat) {
-        time += TimeInterval(change * 100).minutes
+    func update(percentageChange change: CGFloat, velocity: CGFloat) {
+        var t = time + TimeInterval(change * 100).minutes
+        t.normalize(min: TimeRange.lowerBound, max: TimeRange.upperBound)
+        time = t
     }
     
 }

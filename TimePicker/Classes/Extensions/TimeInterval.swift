@@ -10,7 +10,7 @@ import Foundation
 
 extension TimeInterval {
     
-    private var includePeriod: Bool {
+    private var shouldIncludePeriod: Bool {
         return DateFormatter
             .dateFormat(fromTemplate: "j", options: 0, locale: Locale.current)!
             .contains("a")
@@ -18,7 +18,7 @@ extension TimeInterval {
     
     func timeFormat(_ round: UInt = 0) -> TimeFormat {
         let value = Int(self)
-        let period = includePeriod
+        let period = shouldIncludePeriod
         let hour = (value / (60 * 60)) % 24
         let minute = value / 60 % 60
         
@@ -33,6 +33,15 @@ extension TimeInterval {
         let format = timeFormat()
         
         return "\(format.hour):\(format.minute)" + (format.period != nil ? " \(format.period!)" : "")
+    }
+    
+    mutating func normalize(min: TimeInterval, max: TimeInterval) {
+        if self > max {
+            self = self.truncatingRemainder(dividingBy: max)
+        }
+        else if self < min {
+            self = max + self
+        }
     }
     
 }
