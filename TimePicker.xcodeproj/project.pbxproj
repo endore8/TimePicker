@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1E7653A11EAD05C200AB0F4A /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E76539F1EAD05C200AB0F4A /* Nimble.framework */; };
-		1E7653A21EAD05C200AB0F4A /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E7653A01EAD05C200AB0F4A /* Quick.framework */; };
-		1EACE57E1EC9E89100A26022 /* TimePicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E3F65E31E55E727007509DF /* TimePicker.framework */; };
 		1EACE57F1EC9E89100A26022 /* TimePicker.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9E3F65E31E55E727007509DF /* TimePicker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1EACE5891EC9ECFF00A26022 /* NSLayoutConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EACE5841EC9ECFF00A26022 /* NSLayoutConstraints.swift */; };
 		1EACE58A1EC9ECFF00A26022 /* TimeCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EACE5861EC9ECFF00A26022 /* TimeCalculator.swift */; };
@@ -61,8 +58,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1E76539F1EAD05C200AB0F4A /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = "Carthage/Checkouts/Nimble/build/Debug-iphoneos/Nimble.framework"; sourceTree = "<group>"; };
-		1E7653A01EAD05C200AB0F4A /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = "Carthage/Checkouts/Quick/build/Debug-iphoneos/Quick.framework"; sourceTree = "<group>"; };
 		1EACE5841EC9ECFF00A26022 /* NSLayoutConstraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSLayoutConstraints.swift; sourceTree = "<group>"; };
 		1EACE5861EC9ECFF00A26022 /* TimeCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeCalculator.swift; sourceTree = "<group>"; };
 		1EACE5871EC9ECFF00A26022 /* TimeFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeFormat.swift; sourceTree = "<group>"; };
@@ -97,8 +92,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1E7653A11EAD05C200AB0F4A /* Nimble.framework in Frameworks */,
-				1E7653A21EAD05C200AB0F4A /* Quick.framework in Frameworks */,
 				9E3F66211E55E8B6007509DF /* TimePicker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -108,22 +101,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E3F664D1E55EB25007509DF /* TimePicker.framework in Frameworks */,
-				1EACE57E1EC9E89100A26022 /* TimePicker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1E76539E1EAD05C200AB0F4A /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				1E76539F1EAD05C200AB0F4A /* Nimble.framework */,
-				1E7653A01EAD05C200AB0F4A /* Quick.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		1EACE5831EC9ECFF00A26022 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -150,7 +133,6 @@
 				9E3F661D1E55E8B6007509DF /* TimePickerTests */,
 				9E3F662C1E55E94A007509DF /* TimePickerExample */,
 				9E3F65E41E55E727007509DF /* Products */,
-				1E76539E1EAD05C200AB0F4A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};

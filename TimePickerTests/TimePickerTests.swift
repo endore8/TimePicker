@@ -6,16 +6,8 @@
 //  Copyright © 2017 Oleh Stasula. All rights reserved.
 //
 
-import Quick
-import Nimble
 import TimePicker
+import XCTest
 
-class TimePickerTests: QuickSpec {
-    override func spec() {
-        describe("TimePicker") {
-            it("works") {
-                expect(true).to(beTrue())
-            }
-        }
-    }
+class TimePickerTests: XCTestCase {
 }
