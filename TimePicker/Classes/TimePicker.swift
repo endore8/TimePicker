@@ -16,33 +16,24 @@ open class TimePicker: UIView {
         return calculator.time
     }
  
-    @IBInspectable public var textColor: UIColor = .black {
-        didSet { updateColors() }
+    var config = TimePickerConfig() {
+        didSet {
+            calculator.config = config.time
+            
+            updateColors()
+            updateFonts()
+            updateTime()
+        }
     }
-    @IBInspectable public var textFont: UIFont = .systemFont(ofSize: 20) {
-        didSet { updateFonts() }
-    }
-    @IBInspectable public var isShakeToResetEnabled: Bool = false {
-        didSet {}
-    }
-    @IBInspectable public var shakeToResetColor: UIColor = .lightGray {
-        didSet {}
-    }
-    @IBInspectable public var shakeToResetFont: UIFont = .systemFont(ofSize: 15) {
-        didSet {}
-    }
-    @IBInspectable public var shakeToResetText: String = "Shake to reset" {
-        didSet {}
-    }
-    @IBInspectable public var isHapticFeedbackEnabled: Bool = true
     
     fileprivate let hourLabel = UILabel()
     fileprivate let timeLabel = UILabel()
     fileprivate let colonLabel = UILabel()
     fileprivate let periodLabel = UILabel()
+    fileprivate let resetLabel = UILabel()
     
     fileprivate lazy var calculator: TimeCalculator = {
-        let calculator = TimeCalculator()
+        let calculator = TimeCalculator(config: self.config.time)
         
         calculator.didUpdateTime = {
             [unowned self]
@@ -129,9 +120,23 @@ extension TimePicker {
     }
     
     fileprivate func updateColors() {
+        hourLabel.textColor = config.text.color
+        timeLabel.textColor = config.text.color
+        colonLabel.textColor = config.text.color
+        periodLabel.textColor = config.text.color
+        resetLabel.textColor = config.reset?.color
     }
     
     fileprivate func updateFonts() {
+        hourLabel.font = config.text.font
+        timeLabel.font = config.text.font
+        colonLabel.font = config.text.font
+        periodLabel.font = config.text.font
+        resetLabel.font = config.reset?.font
+    }
+    
+    fileprivate func updateTexts() {
+        resetLabel.text = config.reset?.label
     }
     
     fileprivate func updateTime() {
@@ -173,6 +178,13 @@ extension TimePicker {
             constraints: (
                 NSLayoutConstraint.alignHorizontally(view: periodLabel, leadingBy: timeLabel) +
                 NSLayoutConstraint.verticallyCentered(view: periodLabel, in: self)
+            )
+        )
+        addSubview(
+            resetLabel,
+            constraints: (
+                NSLayoutConstraint.horizontallyCentered(view: resetLabel, in: self) +
+                NSLayoutConstraint.alignVertically(view: resetLabel, above: self, distance: 40)
             )
         )
     }

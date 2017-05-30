@@ -8,15 +8,26 @@
 
 import Foundation
 
-fileprivate let TimeRange = TimeInterval(0)...(24 * 60 * 60)
-fileprivate let TimeStepRange = TimeInterval(1)...30
-fileprivate let InitialTime = TimeInterval(8) * 60 * 60
-
 final class TimeCalculator {
     
     var didUpdateTime: ((TimeInterval) -> ())?
     
-    fileprivate(set) var time: TimeInterval = InitialTime {
+    var config: TimePickerConfig.Time {
+        didSet {
+            if time == oldValue.initial {
+                time = config.initial
+            }
+            
+            if step == oldValue.step {
+                step = config.step
+            }
+            else if step == -oldValue.step {
+                step = -config.step
+            }
+        }
+    }
+    
+    fileprivate(set) var time: TimeInterval {
         didSet {
             guard oldValue.timeFormat() != time.timeFormat() else { return }
             
@@ -24,52 +35,31 @@ final class TimeCalculator {
         }
     }
     
-    private var initialTimeValue = InitialTime
-    var initialTime: TimeInterval {
-        get {
-            return initialTimeValue
-        }
-        set {
-            let updateTime = time == initialTimeValue
-            
-            initialTimeValue = max(TimeRange.lowerBound, min(newValue, TimeRange.upperBound))
-            
-            if updateTime {
-                time = initialTimeValue
-            }
-        }
-    }
-    
-    private var minTimeChangeStepValue = TimeStepRange.lowerBound
-    var minTimeChangeStep: TimeInterval {
-        get {
-            return minTimeChangeStepValue
-        }
-        set {
-            minTimeChangeStepValue = max(TimeStepRange.lowerBound, min(newValue, TimeStepRange.upperBound))
-        }
-    }
-    
-    fileprivate var timer: Timer?
     fileprivate var step: TimeInterval?
+    fileprivate var timer: Timer?
+    
+    init(config: TimePickerConfig.Time) {
+        self.config = config
+        self.time = config.initial
+    }
     
 }
 
 extension TimeCalculator {
     
     func increment() {
-        time += minTimeChangeStep.minutes
+        time += config.step.minutes
         
         if timer != nil {
-            step = minTimeChangeStep
+            step = config.step
         }
     }
     
     func decrement() {
-        time -= minTimeChangeStep.minutes
+        time -= config.step.minutes
         
         if timer != nil {
-            step = -minTimeChangeStep
+            step = -config.step
         }
     }
     
@@ -116,7 +106,7 @@ extension TimeCalculator {
         }
         
         var t = time + TimeInterval(change * 100 * multiplier).minutes
-        t.normalize(min: TimeRange.lowerBound, max: TimeRange.upperBound)
+        t.normalize(min: TimePickerConfig.Time.timeRange.lowerBound, max: TimePickerConfig.Time.timeRange.upperBound)
         time = t
     }
     
