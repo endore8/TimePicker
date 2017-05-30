@@ -46,12 +46,12 @@ extension NSLayoutConstraint {
         )
     }
     
-    static func alignVertically(view: UIView, above bottomView: UIView, distance: CGFloat = 0) -> [NSLayoutConstraint] {
+    static func alignVertically(view: UIView, below topView: UIView, distance: CGFloat = 0) -> [NSLayoutConstraint] {
         return constraints(
-            withVisualFormat: "V:[view]-distance-[bottomView]",
+            withVisualFormat: "V:[topView]-distance-[view]",
             options: NSLayoutFormatOptions(),
             metrics: ["distance": distance],
-            views: ["view": view, "bottomView": bottomView]
+            views: ["view": view, "topView": topView]
         )
     }
     

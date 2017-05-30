@@ -16,13 +16,14 @@ open class TimePicker: UIView {
         return calculator.time
     }
  
-    var config = TimePickerConfig() {
+    public var config = TimePickerConfig() {
         didSet {
             calculator.config = config.time
             
             updateColors()
             updateFonts()
             updateTime()
+            updateTexts()
         }
     }
     
@@ -67,8 +68,6 @@ open class TimePicker: UIView {
     }
     
     private func initialize() {
-        backgroundColor = .lightGray
-        
         addSubviews()
         prepareState()
         setupGestures()
@@ -117,6 +116,7 @@ extension TimePicker {
         updateColors()
         updateFonts()
         updateTime()
+        updateTexts()
     }
     
     fileprivate func updateColors() {
@@ -140,11 +140,12 @@ extension TimePicker {
     }
     
     fileprivate func updateTime() {
-        let tf = calculator.time.timeFormat()
+        let tf = calculator.time.timeFormat(type: config.time.format)
         
         hourLabel.text = tf.hour
         timeLabel.text = tf.minute
         periodLabel.text = tf.period
+        resetLabel.alpha = calculator.time == config.time.initial ? 0 : 1
     }
     
 }
@@ -184,7 +185,7 @@ extension TimePicker {
             resetLabel,
             constraints: (
                 NSLayoutConstraint.horizontallyCentered(view: resetLabel, in: self) +
-                NSLayoutConstraint.alignVertically(view: resetLabel, above: self, distance: 40)
+                NSLayoutConstraint.alignVertically(view: resetLabel, below: colonLabel, distance: 40)
             )
         )
     }

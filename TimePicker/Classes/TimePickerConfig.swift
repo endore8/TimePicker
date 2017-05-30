@@ -8,43 +8,49 @@
 
 import Foundation
 
-struct TimePickerConfig {
-    struct Reset {
-        let color: UIColor
-        let font: UIFont
-        let label: String
+public struct TimePickerConfig {
+    public struct Reset {
+        public let color: UIColor
+        public let font: UIFont
+        public let label: String
         
-        static let reset = Reset(color: .gray, font: .systemFont(ofSize: 15), label: "Shake to reset")
+        public static let reset = Reset(color: .gray, font: .systemFont(ofSize: 15), label: "Shake to reset")
     }
-    struct Text {
-        let color: UIColor
-        let font: UIFont
+    public struct Text {
+        public let color: UIColor
+        public let font: UIFont
         
-        static let text = Text(color: .black, font: .systemFont(ofSize: 28, weight: UIFontWeightSemibold))
+        public static let text = Text(color: .black, font: .systemFont(ofSize: 28, weight: UIFontWeightSemibold))
     }
-    struct Time {
-        static let timeRange = TimeInterval(0)...(24 * 60 * 60)
-        static let timeStepRange = TimeInterval(1)...30
-        static let initialTime = TimeInterval(8) * 60 * 60
+    public struct Time {
+        public static let timeRange = TimeInterval(0)...(24 * 60 * 60)
+        public static let timeStepRange = TimeInterval(1)...30
+        public static let initialTime = TimeInterval(8) * 60 * 60
         
-        enum Format {
+        public enum Format {
             case auto, international, period
         }
         
-        let initial: TimeInterval
-        let step: TimeInterval
-        let format: Format
+        public let initial: TimeInterval
+        public let step: TimeInterval
+        public let format: Format
         
-        init(initial: TimeInterval = Time.initialTime, step: TimeInterval = Time.timeStepRange.lowerBound, format: Format = .auto) {
+        public init(initial: TimeInterval = Time.initialTime, step: TimeInterval = Time.timeStepRange.lowerBound, format: Format = .auto) {
             self.initial = max(Time.timeRange.lowerBound, min(initial, Time.timeRange.upperBound))
             self.step = max(Time.timeStepRange.lowerBound, min(step, Time.timeStepRange.upperBound))
             self.format = format
         }
         
-        static let time = Time(initial: Time.initialTime, step: Time.timeStepRange.lowerBound, format: .auto)
+        public static let time = Time(initial: Time.initialTime, step: Time.timeStepRange.lowerBound, format: .auto)
     }
     
-    let reset: Reset? = .reset
-    let text: Text = .text
-    let time: Time = .time
+    public let reset: Reset?
+    public let text: Text
+    public let time: Time
+    
+    public init(reset: Reset? = .reset, text: Text = .text, time: Time = .time) {
+        self.reset = reset
+        self.text = text
+        self.time = time
+    }
 }

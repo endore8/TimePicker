@@ -16,9 +16,9 @@ extension TimeInterval {
             .contains("a")
     }
     
-    func timeFormat(_ round: UInt = 0) -> TimeFormat {
+    func timeFormat(_ round: UInt = 0, type: TimePickerConfig.Time.Format = .auto) -> TimeFormat {
         let value = Int(self)
-        let period = shouldIncludePeriod
+        let period = (type == .auto ? shouldIncludePeriod : (type == .international ? false : true))
         let hour = (value / (60 * 60)) % 24
         let minute = value / 60 % 60
         
