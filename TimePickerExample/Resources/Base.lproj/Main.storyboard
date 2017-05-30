@@ -21,7 +21,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZjY-Cq-Dfb">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZjY-Cq-Dfb">
                                 <rect key="frame" x="0.0" y="340" width="375" height="327"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GUj-b5-Sud">
@@ -71,7 +71,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="8" minValue="0.0" maxValue="23" continuous="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MZt-vZ-V51">
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="8" minValue="0.0" maxValue="23" translatesAutoresizingMaskIntoConstraints="NO" id="MZt-vZ-V51">
                                                 <rect key="frame" x="189.5" y="17" width="172.5" height="31"/>
                                                 <connections>
                                                     <action selector="controlEvent:" destination="BYZ-38-t0r" eventType="valueChanged" id="TZ9-rt-er8"/>
@@ -143,52 +143,13 @@
                                             <constraint firstItem="NWr-s2-VwR" firstAttribute="width" secondItem="Tvn-SX-TtR" secondAttribute="width" id="hm2-2O-rUe"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ndB-lQ-575">
-                                        <rect key="frame" x="0.0" y="192" width="375" height="64"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shake to reset?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q21-0K-ujc">
-                                                <rect key="frame" x="15" y="22" width="168.5" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SMX-gt-ivg">
-                                                <rect key="frame" x="187.5" y="0.0" width="0.0" height="64"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="64" id="jMx-J8-NwB"/>
-                                                    <constraint firstAttribute="width" id="zmQ-Sb-3f1"/>
-                                                </constraints>
-                                            </view>
-                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Qd-dZ-uwN">
-                                                <rect key="frame" x="311" y="17" width="51" height="31"/>
-                                                <connections>
-                                                    <action selector="controlEvent:" destination="BYZ-38-t0r" eventType="valueChanged" id="rh6-8d-HcK"/>
-                                                </connections>
-                                            </switch>
-                                        </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="64" id="4jE-wb-Enp"/>
-                                            <constraint firstItem="3Qd-dZ-uwN" firstAttribute="centerY" secondItem="ndB-lQ-575" secondAttribute="centerY" id="Fgw-EN-Wue"/>
-                                            <constraint firstItem="SMX-gt-ivg" firstAttribute="centerY" secondItem="ndB-lQ-575" secondAttribute="centerY" id="Now-Wo-Xnh"/>
-                                            <constraint firstItem="q21-0K-ujc" firstAttribute="centerY" secondItem="ndB-lQ-575" secondAttribute="centerY" id="OTt-Ev-1ad"/>
-                                            <constraint firstAttribute="trailing" secondItem="3Qd-dZ-uwN" secondAttribute="trailing" constant="15" id="Pp9-61-nth"/>
-                                            <constraint firstItem="SMX-gt-ivg" firstAttribute="centerX" secondItem="ndB-lQ-575" secondAttribute="centerX" id="TV2-vP-Vcz"/>
-                                            <constraint firstItem="SMX-gt-ivg" firstAttribute="leading" secondItem="q21-0K-ujc" secondAttribute="trailing" constant="4" id="iPZ-gw-5Jr"/>
-                                            <constraint firstItem="q21-0K-ujc" firstAttribute="leading" secondItem="ndB-lQ-575" secondAttribute="leading" constant="15" id="pMk-hg-YZR"/>
-                                        </constraints>
-                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="GUj-b5-Sud" firstAttribute="leading" secondItem="ZjY-Cq-Dfb" secondAttribute="leading" id="6wB-vd-Nw5"/>
-                                    <constraint firstAttribute="trailing" secondItem="ndB-lQ-575" secondAttribute="trailing" id="8ff-4x-D74"/>
-                                    <constraint firstItem="ndB-lQ-575" firstAttribute="top" secondItem="Od9-gt-V7g" secondAttribute="bottom" id="9Zp-am-oJp"/>
                                     <constraint firstItem="4jV-ty-GK7" firstAttribute="top" secondItem="GUj-b5-Sud" secondAttribute="bottom" id="HrJ-VY-S1J"/>
                                     <constraint firstAttribute="trailing" secondItem="GUj-b5-Sud" secondAttribute="trailing" id="Pxf-Lt-WxY"/>
                                     <constraint firstItem="4jV-ty-GK7" firstAttribute="leading" secondItem="ZjY-Cq-Dfb" secondAttribute="leading" id="Qs6-j3-Tpc"/>
-                                    <constraint firstItem="ndB-lQ-575" firstAttribute="leading" secondItem="ZjY-Cq-Dfb" secondAttribute="leading" id="VMN-Gx-Pt3"/>
                                     <constraint firstItem="Od9-gt-V7g" firstAttribute="centerX" secondItem="ZjY-Cq-Dfb" secondAttribute="centerX" id="Xgu-jM-82b"/>
                                     <constraint firstItem="GUj-b5-Sud" firstAttribute="top" secondItem="ZjY-Cq-Dfb" secondAttribute="top" id="YFG-B1-fqm"/>
                                     <constraint firstAttribute="trailing" secondItem="4jV-ty-GK7" secondAttribute="trailing" id="ZBT-eQ-2B2"/>
@@ -196,7 +157,7 @@
                                     <constraint firstItem="Od9-gt-V7g" firstAttribute="leading" secondItem="ZjY-Cq-Dfb" secondAttribute="leading" id="fPn-v6-GeE"/>
                                     <constraint firstItem="GUj-b5-Sud" firstAttribute="centerX" secondItem="ZjY-Cq-Dfb" secondAttribute="centerX" id="gA0-C1-us8"/>
                                     <constraint firstItem="4jV-ty-GK7" firstAttribute="centerX" secondItem="ZjY-Cq-Dfb" secondAttribute="centerX" id="jM8-7V-dwU"/>
-                                    <constraint firstItem="ndB-lQ-575" firstAttribute="centerX" secondItem="ZjY-Cq-Dfb" secondAttribute="centerX" id="kUL-wL-2By"/>
+                                    <constraint firstAttribute="bottom" secondItem="Od9-gt-V7g" secondAttribute="bottom" id="pXm-Gp-H5q"/>
                                     <constraint firstAttribute="trailing" secondItem="Od9-gt-V7g" secondAttribute="trailing" id="uSS-S0-EH8"/>
                                 </constraints>
                             </scrollView>
@@ -223,7 +184,6 @@
                         <outlet property="formatSegment" destination="NWr-s2-VwR" id="CS5-ZT-MPB"/>
                         <outlet property="hourLabel" destination="OHC-f7-Q6O" id="MwA-uk-wEV"/>
                         <outlet property="hourSlider" destination="MZt-vZ-V51" id="Lcu-xC-weo"/>
-                        <outlet property="resetSwitch" destination="3Qd-dZ-uwN" id="KUF-nW-tys"/>
                         <outlet property="stepLabel" destination="vMW-LM-db2" id="sqe-8b-8KJ"/>
                         <outlet property="stepSlider" destination="dRC-Ph-kj7" id="FjW-fu-XAF"/>
                         <outlet property="timePicker" destination="nwB-go-c64" id="3GR-xS-TkF"/>

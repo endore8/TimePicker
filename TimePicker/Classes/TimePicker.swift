@@ -23,7 +23,6 @@ open class TimePicker: UIView {
             updateColors()
             updateFonts()
             updateTime()
-            updateTexts()
         }
     }
     
@@ -31,7 +30,6 @@ open class TimePicker: UIView {
     fileprivate let timeLabel = UILabel()
     fileprivate let colonLabel = UILabel()
     fileprivate let periodLabel = UILabel()
-    fileprivate let resetLabel = UILabel()
     
     fileprivate lazy var calculator: TimeCalculator = {
         let calculator = TimeCalculator(config: self.config.time)
@@ -116,7 +114,6 @@ extension TimePicker {
         updateColors()
         updateFonts()
         updateTime()
-        updateTexts()
     }
     
     fileprivate func updateColors() {
@@ -124,7 +121,6 @@ extension TimePicker {
         timeLabel.textColor = config.text.color
         colonLabel.textColor = config.text.color
         periodLabel.textColor = config.text.color
-        resetLabel.textColor = config.reset?.color
     }
     
     fileprivate func updateFonts() {
@@ -132,11 +128,6 @@ extension TimePicker {
         timeLabel.font = config.text.font
         colonLabel.font = config.text.font
         periodLabel.font = config.text.font
-        resetLabel.font = config.reset?.font
-    }
-    
-    fileprivate func updateTexts() {
-        resetLabel.text = config.reset?.label
     }
     
     fileprivate func updateTime() {
@@ -145,7 +136,6 @@ extension TimePicker {
         hourLabel.text = tf.hour
         timeLabel.text = tf.minute
         periodLabel.text = tf.period
-        resetLabel.alpha = calculator.time == config.time.initial ? 0 : 1
     }
     
 }
@@ -179,13 +169,6 @@ extension TimePicker {
             constraints: (
                 NSLayoutConstraint.alignHorizontally(view: periodLabel, leadingBy: timeLabel) +
                 NSLayoutConstraint.verticallyCentered(view: periodLabel, in: self)
-            )
-        )
-        addSubview(
-            resetLabel,
-            constraints: (
-                NSLayoutConstraint.horizontallyCentered(view: resetLabel, in: self) +
-                NSLayoutConstraint.alignVertically(view: resetLabel, below: colonLabel, distance: 40)
             )
         )
     }

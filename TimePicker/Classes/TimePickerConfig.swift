@@ -9,13 +9,6 @@
 import Foundation
 
 public struct TimePickerConfig {
-    public struct Reset {
-        public let color: UIColor
-        public let font: UIFont
-        public let label: String
-        
-        public static let reset = Reset(color: .gray, font: .systemFont(ofSize: 15), label: "Shake to reset")
-    }
     public struct Text {
         public let color: UIColor
         public let font: UIFont
@@ -44,12 +37,10 @@ public struct TimePickerConfig {
         public static let time = Time(initial: Time.initialTime, step: Time.timeStepRange.lowerBound, format: .auto)
     }
     
-    public let reset: Reset?
     public let text: Text
     public let time: Time
     
-    public init(reset: Reset? = .reset, text: Text = .text, time: Time = .time) {
-        self.reset = reset
+    public init(text: Text = .text, time: Time = .time) {
         self.text = text
         self.time = time
     }

@@ -21,8 +21,6 @@ final class ViewController: UIViewController {
     
     @IBOutlet fileprivate weak var formatSegment: UISegmentedControl!
     
-    @IBOutlet fileprivate weak var resetSwitch: UISwitch!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,7 +42,6 @@ extension ViewController {
     
     fileprivate func updateConfig() {
         timePicker.config = TimePickerConfig(
-            reset: resetSwitch.isOn ? TimePickerConfig.Reset.reset : nil,
             text: TimePickerConfig.Text.text,
             time: TimePickerConfig.Time(
                 initial: TimeInterval(Int(hourSlider.value) * 60 * 60),
