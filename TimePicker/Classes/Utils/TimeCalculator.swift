@@ -102,7 +102,20 @@ extension TimeCalculator {
 extension TimeCalculator {
     
     func update(percentageChange change: CGFloat, velocity: CGFloat) {
-        var t = time + TimeInterval(change * 100).minutes
+        var multiplier: CGFloat = 0
+        
+        switch abs(velocity) {
+        case 0..<50:
+            multiplier = 0.2
+        case 51..<200:
+            multiplier = 0.5
+        case 201..<1000:
+            multiplier = 0.75
+        default:
+            multiplier = 1
+        }
+        
+        var t = time + TimeInterval(change * 100 * multiplier).minutes
         t.normalize(min: TimeRange.lowerBound, max: TimeRange.upperBound)
         time = t
     }
