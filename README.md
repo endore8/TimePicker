@@ -6,7 +6,7 @@ Better TimePicker for iOS
 
 ## Requirements
 
-- Swift 3.1 (for Swift 3.0 support, use tag 3.1.1)
+- Swift 3.0
 - iOS 10.0+
 - Xcode 8+
 
