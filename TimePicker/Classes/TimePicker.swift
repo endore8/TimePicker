@@ -37,8 +37,9 @@ open class TimePicker: UIView {
         calculator.didUpdateTime = {
             [unowned self]
             timeInterval in
-        
+            
             self.updateTime()
+            self.feedback()
         }
         
         return calculator
@@ -52,6 +53,7 @@ open class TimePicker: UIView {
     fileprivate lazy var tapGestureRecognizer: UITapGestureRecognizer = {
         UITapGestureRecognizer(target: self, action: .handleTapGesture)
     }()
+    fileprivate var feedbackGenerator = UISelectionFeedbackGenerator()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -136,6 +138,15 @@ extension TimePicker {
         hourLabel.text = tf.hour
         timeLabel.text = tf.minute
         periodLabel.text = tf.period
+    }
+    
+}
+
+extension TimePicker {
+    
+    fileprivate func feedback() {
+        feedbackGenerator.selectionChanged()
+        feedbackGenerator.prepare()
     }
     
 }
