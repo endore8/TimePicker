@@ -48,7 +48,7 @@ final class TimeCalculator {
 extension TimeCalculator {
     
     func increment() {
-        time += config.step.minutes
+        updateTime(newTime: time + config.step.minutes)
         
         if timer != nil {
             step = config.step
@@ -56,7 +56,7 @@ extension TimeCalculator {
     }
     
     func decrement() {
-        time -= config.step.minutes
+        updateTime(newTime: time - config.step.minutes)
         
         if timer != nil {
             step = -config.step
@@ -76,7 +76,7 @@ extension TimeCalculator {
             
             guard let sself = self, let step = sself.step else { return }
             
-            sself.time += step.minutes
+            sself.updateTime(newTime: sself.time + step.minutes)
         })
         timer?.fire()
     }
@@ -105,9 +105,17 @@ extension TimeCalculator {
             multiplier = 1
         }
         
-        var t = time + TimeInterval(change * 100 * multiplier).minutes
-        t.normalize(min: TimePickerConfig.Time.timeRange.lowerBound, max: TimePickerConfig.Time.timeRange.upperBound)
-        time = t
+        updateTime(newTime: time + TimeInterval(change * 100 * multiplier).minutes)
+    }
+    
+}
+
+extension TimeCalculator {
+    
+    fileprivate func updateTime(newTime time: TimeInterval) {
+        var tmp = time
+        tmp.normalize(min: TimePickerConfig.Time.timeRange.lowerBound, max: TimePickerConfig.Time.timeRange.upperBound)
+        self.time = tmp
     }
     
 }
