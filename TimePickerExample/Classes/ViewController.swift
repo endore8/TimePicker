@@ -36,6 +36,10 @@ extension ViewController {
         updateViews()
     }
     
+    @IBAction fileprivate func reset(_ sender: Any) {
+        timePicker.reset()
+    }
+    
 }
 
 extension ViewController {

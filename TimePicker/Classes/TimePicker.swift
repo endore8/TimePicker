@@ -67,7 +67,19 @@ open class TimePicker: UIView {
         initialize()
     }
     
-    private func initialize() {
+}
+
+extension TimePicker {
+    
+    open func reset() {
+        calculator.reset()
+    }
+    
+}
+
+extension TimePicker {
+
+    fileprivate func initialize() {
         addSubviews()
         prepareState()
         setupGestures()

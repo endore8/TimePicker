@@ -112,6 +112,14 @@ extension TimeCalculator {
 
 extension TimeCalculator {
     
+    func reset() {
+        updateTime(newTime: config.initial)
+    }
+    
+}
+
+extension TimeCalculator {
+    
     fileprivate func updateTime(newTime time: TimeInterval) {
         var tmp = time
         tmp.normalize(min: TimePickerConfig.Time.timeRange.lowerBound, max: TimePickerConfig.Time.timeRange.upperBound)
