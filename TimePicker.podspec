@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name = "TimePicker"
-  spec.version = "1.0.0"
+  spec.version = "0.0.1"
   spec.summary = "Better time picker for iOS"
   spec.homepage = "https://github.com/Endore8/TimePicker"
   spec.license = { type: 'MIT', file: 'LICENSE' }

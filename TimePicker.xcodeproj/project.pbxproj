@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E5E96A41EE050BF003C9A37 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 1E5E96A31EE050BF003C9A37 /* README.md */; };
+		1E5E96A61EE050CA003C9A37 /* TimePicker.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 1E5E96A51EE050CA003C9A37 /* TimePicker.podspec */; };
 		1EACE57F1EC9E89100A26022 /* TimePicker.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9E3F65E31E55E727007509DF /* TimePicker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1EACE5891EC9ECFF00A26022 /* NSLayoutConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EACE5841EC9ECFF00A26022 /* NSLayoutConstraints.swift */; };
 		1EACE58A1EC9ECFF00A26022 /* TimeCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EACE5861EC9ECFF00A26022 /* TimeCalculator.swift */; };
@@ -58,6 +60,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1E5E96A31EE050BF003C9A37 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		1E5E96A51EE050CA003C9A37 /* TimePicker.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TimePicker.podspec; sourceTree = "<group>"; };
 		1EACE5841EC9ECFF00A26022 /* NSLayoutConstraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSLayoutConstraints.swift; sourceTree = "<group>"; };
 		1EACE5861EC9ECFF00A26022 /* TimeCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeCalculator.swift; sourceTree = "<group>"; };
 		1EACE5871EC9ECFF00A26022 /* TimeFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeFormat.swift; sourceTree = "<group>"; };
@@ -129,6 +133,8 @@
 		9E3F65D91E55E727007509DF = {
 			isa = PBXGroup;
 			children = (
+				1E5E96A31EE050BF003C9A37 /* README.md */,
+				1E5E96A51EE050CA003C9A37 /* TimePicker.podspec */,
 				9E3F65E51E55E727007509DF /* TimePicker */,
 				9E3F661D1E55E8B6007509DF /* TimePickerTests */,
 				9E3F662C1E55E94A007509DF /* TimePickerExample */,
@@ -334,6 +340,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E5E96A61EE050CA003C9A37 /* TimePicker.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,6 +374,7 @@
 				1EACE58A1EC9ECFF00A26022 /* TimeCalculator.swift in Sources */,
 				1EACE58E1EC9ED1800A26022 /* UIGestureRecognizer.swift in Sources */,
 				1EACE5891EC9ECFF00A26022 /* NSLayoutConstraints.swift in Sources */,
+				1E5E96A41EE050BF003C9A37 /* README.md in Sources */,
 				1EACE58B1EC9ECFF00A26022 /* TimeFormat.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
