@@ -26,7 +26,21 @@ github "Endore8/TimePicker"
 
 ## Usage
 
+### 
+
+```
+let timePicker = TimePicker()
+view.addSubview(timePicker)
+```
+
 ### Config
+
+```
+timePicker.config = TimePickerConfig(
+    text: TimePickerConfig.Text.text,
+    time: TimePickerConfig.time
+)
+```
 
 ## ToDo
 
