@@ -12,10 +12,12 @@ import UIKit
 @objc(OSTimePicker)
 open class TimePicker: UIView {
     
+    // Currently selected time interval
     public var time: TimeInterval {
         return calculator.time
     }
  
+    // Configuration of the time picker instance
     public var config = TimePickerConfig() {
         didSet {
             calculator.config = config.time
@@ -71,6 +73,7 @@ open class TimePicker: UIView {
 
 extension TimePicker {
     
+    // Reset selected time to initial
     open func reset() {
         calculator.reset()
     }
