@@ -8,7 +8,6 @@
 
 import UIKit
 
-@IBDesignable
 @objc(OSTimePicker)
 open class TimePicker: UIView {
     
@@ -193,7 +192,7 @@ extension TimePicker {
         addSubview(
             periodLabel,
             constraints: (
-                NSLayoutConstraint.alignHorizontally(view: periodLabel, leadingBy: timeLabel) +
+                NSLayoutConstraint.alignHorizontally(view: periodLabel, leadingBy: timeLabel, distance: 8) +
                 NSLayoutConstraint.verticallyCentered(view: periodLabel, in: self)
             )
         )
