@@ -9,9 +9,14 @@
 import Foundation
 
 public struct TimePickerConfig {
-    public struct Text { // Configurations for hh:mm labels
+    public struct Text { // Configurations for hh:mm a labels
         public let color: UIColor
         public let font: UIFont
+        
+        public init(color: UIColor, font: UIFont) {
+            self.color = color
+            self.font = font
+        }
         
         public static let text = Text(color: .black, font: .systemFont(ofSize: 28, weight: UIFontWeightSemibold))
     }
