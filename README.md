@@ -6,9 +6,9 @@ Better TimePicker for iOS
 
 ## Requirements
 
-- Swift 3.0
-- iOS 10.0+
-- Xcode 8+
+- Swift 4.0
+- iOS 11.0+
+- Xcode 9+
 
 ## Installation
 
@@ -38,10 +38,10 @@ view.addSubview(timePicker)
 ```
 timePicker.config = TimePickerConfig(
     text: TimePickerConfig.Text(                                //  Configurations for hh:mm a labels
-    color: .black,
-    font: .systemFont(
-        ofSize: 28,
-        weight: UIFontWeightSemibold
+        color: .black,
+        font: .systemFont(
+            ofSize: 28,
+            weight: .semibold
         )
     ),
     time: TimePickerConfig.Time(                                // Time calculator configs

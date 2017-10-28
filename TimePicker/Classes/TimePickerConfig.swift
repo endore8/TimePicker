@@ -6,7 +6,7 @@
 //  Copyright © 2017 Oleh Stasula. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 public struct TimePickerConfig {
     public struct Text { // Configurations for hh:mm a labels
@@ -18,7 +18,7 @@ public struct TimePickerConfig {
             self.font = font
         }
         
-        public static let text = Text(color: .black, font: .systemFont(ofSize: 28, weight: UIFontWeightSemibold))
+        public static let text = Text(color: .black, font: .systemFont(ofSize: 28, weight: UIFont.Weight.semibold))
     }
     public struct Time { // Time calculator configs
         public static let timeRange = TimeInterval(0)...(24 * 60 * 60)
