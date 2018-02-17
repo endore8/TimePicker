@@ -11,12 +11,12 @@ import UIKit
 @objc(OSTimePicker)
 open class TimePicker: UIView {
     
-    // Currently selected time interval
+    /// Currently selected time interval
     public var time: TimeInterval {
         return calculator.time
     }
  
-    // Configuration of the time picker instance
+    /// Configuration of the time picker instance
     public var config = TimePickerConfig() {
         didSet {
             calculator.config = config.time
@@ -26,6 +26,9 @@ open class TimePicker: UIView {
             updateTime()
         }
     }
+    
+    /// Enables haptic feedback if set to `true`. Default is `true`.
+    public var isHapticFeedbackEnabled: Bool = true
     
     fileprivate let hourLabel = UILabel()
     fileprivate let timeLabel = UILabel()
@@ -54,7 +57,7 @@ open class TimePicker: UIView {
     fileprivate lazy var tapGestureRecognizer: UITapGestureRecognizer = {
         UITapGestureRecognizer(target: self, action: .handleTapGesture)
     }()
-    fileprivate var feedbackGenerator = UISelectionFeedbackGenerator()
+    fileprivate lazy var feedbackGenerator = UISelectionFeedbackGenerator()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -72,7 +75,7 @@ open class TimePicker: UIView {
 
 extension TimePicker {
     
-    // Reset selected time to initial
+    /// Reset selected time interval to initial
     open func reset() {
         calculator.reset()
     }
@@ -159,6 +162,9 @@ extension TimePicker {
 extension TimePicker {
     
     fileprivate func feedback() {
+        guard self.isHapticFeedbackEnabled else {
+            return
+        }
         feedbackGenerator.selectionChanged()
         feedbackGenerator.prepare()
     }

@@ -7,7 +7,7 @@ Better TimePicker for iOS
 ## Requirements
 
 - Swift 4.0
-- iOS 11.0+
+- iOS 10.0+
 - Xcode 9+
 
 ## Installation
@@ -37,7 +37,7 @@ view.addSubview(timePicker)
 
 ```
 timePicker.config = TimePickerConfig(
-    text: TimePickerConfig.Text(                                //  Configurations for hh:mm a labels
+    text: TimePickerConfig.Text(                                //  Configurations for hh:mm labels
         color: .black,
         font: .systemFont(
             ofSize: 28,
@@ -46,7 +46,7 @@ timePicker.config = TimePickerConfig(
     ),
     time: TimePickerConfig.Time(                                // Time calculator configs
         initial: TimePickerConfig.Time.initialTime,             // Initial time interval (0 - 24 * 60 * 60)
-        step: TimePickerConfig.Time.timeStepRange.lowerBound,   // Minimum change step (0 - 30, minutes)
+        step: TimePickerConfig.Time.timeStepRange.lowerBound,   // Minimum change step (0 - 30 minutes)
         format: TimePickerConfig.Time.Format.auto               // Time format
     )
 )
@@ -55,7 +55,7 @@ timePicker.config = TimePickerConfig(
 ## ToDo
 
 - [ ] Tests
-- [ ] Optional haptic feedback
+- [ ] Swiping bubbles to hint gestures
 - [ ] Code documentation
 
 ## License

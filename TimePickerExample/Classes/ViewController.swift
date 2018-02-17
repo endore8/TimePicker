@@ -40,6 +40,10 @@ extension ViewController {
         timePicker.reset()
     }
     
+    @IBAction fileprivate func triggerHapticFeedback(_ sender: UISwitch) {
+        timePicker.isHapticFeedbackEnabled = sender.isOn
+    }
+    
 }
 
 extension ViewController {

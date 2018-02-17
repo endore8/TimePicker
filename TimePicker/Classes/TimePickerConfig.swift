@@ -8,7 +8,9 @@
 
 import UIKit
 
+/// Configuration struct for TimePicker
 public struct TimePickerConfig {
+    
     public struct Text { // Configurations for hh:mm a labels
         public let color: UIColor
         public let font: UIFont
@@ -20,6 +22,7 @@ public struct TimePickerConfig {
         
         public static let text = Text(color: .black, font: .systemFont(ofSize: 28, weight: UIFont.Weight.semibold))
     }
+    
     public struct Time { // Time calculator configs
         public static let timeRange = TimeInterval(0)...(24 * 60 * 60)
         public static let timeStepRange = TimeInterval(1)...30
