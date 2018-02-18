@@ -28,14 +28,14 @@ github "Endore8/TimePicker"
 
 ### 
 
-```
+``` swift
 let timePicker = TimePicker()
 view.addSubview(timePicker)
 ```
 
 ### Config
 
-```
+``` swift
 timePicker.config = TimePickerConfig(
     text: TimePickerConfig.Text(                                //  Configurations for hh:mm labels
         color: .black,
