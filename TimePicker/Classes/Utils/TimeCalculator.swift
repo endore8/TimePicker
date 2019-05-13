@@ -95,17 +95,20 @@ extension TimeCalculator {
         var multiplier: CGFloat = 0
         
         switch abs(velocity) {
-        case 0..<50:
-            multiplier = 0.2
-        case 51..<200:
-            multiplier = 0.5
-        case 201..<1000:
-            multiplier = 0.75
-        default:
+        case 0..<150:
             multiplier = 1
+        case 151..<400:
+            multiplier = 2
+        case 401..<1000:
+            multiplier = 4
+        default:
+            multiplier = 8
         }
         
-        self.updateTime(newTime: self.time + TimeInterval(change * 100 * multiplier).minutes)
+        let step = TimeInterval(change * multiplier)
+        let normalizedAbsStep = max(abs(step), self.config.step)
+        let signedStep = change < 0 ? -normalizedAbsStep : normalizedAbsStep;
+        self.updateTime(newTime: self.time + signedStep.minutes)
     }
     
 }
@@ -121,7 +124,7 @@ extension TimeCalculator {
 extension TimeCalculator {
     
     fileprivate func updateTime(newTime time: TimeInterval) {
-        var tmp = time
+        var tmp = TimeInterval(Int(time / self.config.step.minutes)) * self.config.step.minutes
         tmp.normalize(min: TimePickerConfig.Time.timeRange.lowerBound, max: TimePickerConfig.Time.timeRange.upperBound)
         self.time = tmp
     }

@@ -30,42 +30,29 @@ open class TimePicker: UIView {
     /// Enables haptic feedback if set to `true`. Default is `true`.
     public var isHapticFeedbackEnabled: Bool = true
     
-    fileprivate let hourLabel = UILabel()
-    fileprivate let timeLabel = UILabel()
-    fileprivate let colonLabel = UILabel()
-    fileprivate let periodLabel = UILabel()
+    private let hourLabel = UILabel()
+    private let timeLabel = UILabel()
+    private let colonLabel = UILabel()
+    private let periodLabel = UILabel()
     
-    fileprivate lazy var calculator: TimeCalculator = {
-        let calculator = TimeCalculator(config: self.config.time)
-        
-        calculator.didUpdateTime = {
-            [unowned self]
-            timeInterval in
-            
-            self.updateTime()
-            self.feedback()
-        }
-        
-        return calculator
-    }()
-    fileprivate lazy var panGestureRecognizer: UIPanGestureRecognizer = {
-        UIPanGestureRecognizer(target: self, action: .handlePanGesture)
-    }()
-    fileprivate lazy var pressGestureRecognizer: UILongPressGestureRecognizer = {
-        UILongPressGestureRecognizer(target: self, action: .handlePressGesture)
-    }()
-    fileprivate lazy var tapGestureRecognizer: UITapGestureRecognizer = {
-        UITapGestureRecognizer(target: self, action: .handleTapGesture)
-    }()
-    fileprivate lazy var feedbackGenerator = UISelectionFeedbackGenerator()
+    private let calculator: TimeCalculator
+    private let feedbackGenerator: UISelectionFeedbackGenerator
+    
+    private var lastPanTranslation: CGFloat?
     
     override init(frame: CGRect) {
+        self.calculator = TimeCalculator(config: self.config.time)
+        self.feedbackGenerator = UISelectionFeedbackGenerator()
+        
         super.init(frame: frame)
         
         self.initialize()
     }
     
     public required init?(coder aDecoder: NSCoder) {
+        self.calculator = TimeCalculator(config: self.config.time)
+        self.feedbackGenerator = UISelectionFeedbackGenerator()
+        
         super.init(coder: aDecoder)
         
         self.initialize()
@@ -84,7 +71,15 @@ extension TimePicker {
 
 extension TimePicker {
 
-    fileprivate func initialize() {
+    private func initialize() {
+        self.calculator.didUpdateTime = {
+            [unowned self]
+            timeInterval in
+            
+            self.updateTime()
+            self.feedback()
+        }
+        
         self.addSubviews()
         self.prepareState()
         self.setupGestures()
@@ -95,14 +90,28 @@ extension TimePicker {
 extension TimePicker {
     
     @objc fileprivate func handlePanGesture(_ gesture: UIPanGestureRecognizer) {
-        guard point(inside: gesture.location(in: self), with: nil) else { return }
+        guard self.point(inside: gesture.location(in: self), with: nil) else { return }
         
-        let translation = gesture.translation(in: gesture.view).y
-        let velocity    = gesture.velocity(in: gesture.view).y
+        switch gesture.state {
+        case .began:
+            self.lastPanTranslation = gesture.translation(in: gesture.view).y
         
-        guard velocity != 0 else { return }
-        
-        self.calculator.update(percentageChange: translation / bounds.height, velocity: velocity)
+        case .changed:
+            guard let lastTranslation = self.lastPanTranslation else { break }
+            let translation = gesture.translation(in: gesture.view).y
+            let change = lastTranslation - translation
+            guard abs(change) >= 5 else { break }
+            let velocity = gesture.velocity(in: gesture.view).y
+            self.calculator.update(percentageChange: change,
+                                   velocity: velocity)
+            self.lastPanTranslation = translation
+            
+        case .ended, .cancelled, .failed:
+            self.lastPanTranslation = nil
+            
+        default:
+            break
+        }
     }
     
     @objc fileprivate func handlePressGesture(_ gesture: UILongPressGestureRecognizer) {
@@ -215,9 +224,9 @@ extension TimePicker {
 extension TimePicker {
     
     fileprivate func setupGestures() {
-        self.addGestureRecognizer(self.panGestureRecognizer)
-        self.addGestureRecognizer(self.pressGestureRecognizer)
-        self.addGestureRecognizer(self.tapGestureRecognizer)
+        self.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: .handlePanGesture))
+        self.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: .handlePressGesture))
+        self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: .handleTapGesture))
     }
     
 }

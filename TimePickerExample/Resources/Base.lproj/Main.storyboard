@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -29,12 +28,12 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Step (1 - 30 min)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vMW-LM-db2">
-                                                <rect key="frame" x="15" y="22" width="168.5" height="21"/>
+                                                <rect key="frame" x="15" y="21.5" width="168.5" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="30" translatesAutoresizingMaskIntoConstraints="NO" id="dRC-Ph-kj7">
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="1" maxValue="30" translatesAutoresizingMaskIntoConstraints="NO" id="dRC-Ph-kj7">
                                                 <rect key="frame" x="189.5" y="17" width="172.5" height="31"/>
                                                 <connections>
                                                     <action selector="controlEvent:" destination="BYZ-38-t0r" eventType="valueChanged" id="Z2s-ct-yFs"/>
@@ -67,7 +66,7 @@
                                         <rect key="frame" x="0.0" y="64" width="375" height="64"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Initial hour" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OHC-f7-Q6O">
-                                                <rect key="frame" x="15" y="22" width="168.5" height="21"/>
+                                                <rect key="frame" x="15" y="21.5" width="168.5" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -105,13 +104,13 @@
                                         <rect key="frame" x="0.0" y="128" width="375" height="64"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Format" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tvn-SX-TtR">
-                                                <rect key="frame" x="15" y="22" width="168.5" height="21"/>
+                                                <rect key="frame" x="15" y="21.5" width="168.5" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="NWr-s2-VwR">
-                                                <rect key="frame" x="191" y="18" width="169" height="29"/>
+                                                <rect key="frame" x="191.5" y="18" width="168.5" height="29"/>
                                                 <segments>
                                                     <segment title="Auto"/>
                                                     <segment title="Int"/>
@@ -148,13 +147,13 @@
                                         <rect key="frame" x="0.0" y="192" width="375" height="64"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Haptic feedback" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F2r-bh-sN0">
-                                                <rect key="frame" x="15" y="21" width="232" height="21"/>
+                                                <rect key="frame" x="15" y="21.5" width="232" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qyt-5a-RnF">
-                                                <rect key="frame" x="262" y="16" width="51" height="31"/>
+                                                <rect key="frame" x="262" y="16.5" width="51" height="31"/>
                                                 <connections>
                                                     <action selector="triggerHapticFeedback:" destination="BYZ-38-t0r" eventType="valueChanged" id="6MJ-Uy-Sh2"/>
                                                 </connections>
@@ -177,7 +176,7 @@
                                                 <rect key="frame" x="187.5" y="0.0" width="187.5" height="64"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aNp-s8-ftG">
-                                                        <rect key="frame" x="73.5" y="17" width="39" height="30"/>
+                                                        <rect key="frame" x="74.5" y="17" width="39" height="30"/>
                                                         <state key="normal" title="Reset"/>
                                                         <connections>
                                                             <action selector="reset:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cam-d9-oxZ"/>
