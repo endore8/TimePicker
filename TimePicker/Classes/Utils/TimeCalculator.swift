@@ -14,24 +14,24 @@ final class TimeCalculator {
     
     var config: TimePickerConfig.Time {
         didSet {
-            if time == oldValue.initial {
-                time = config.initial
+            if self.time == oldValue.initial {
+                self.time = self.config.initial
             }
             
-            if step == oldValue.step {
-                step = config.step
+            if self.step == oldValue.step {
+                self.step = self.config.step
             }
-            else if step == -oldValue.step {
-                step = -config.step
+            else if self.step == -oldValue.step {
+                self.step = -self.config.step
             }
         }
     }
     
     fileprivate(set) var time: TimeInterval {
         didSet {
-            guard oldValue.timeFormat() != time.timeFormat() else { return }
+            guard oldValue.timeFormat() != self.time.timeFormat() else { return }
             
-            didUpdateTime?(time)
+            self.didUpdateTime?(self.time)
         }
     }
     
@@ -48,18 +48,18 @@ final class TimeCalculator {
 extension TimeCalculator {
     
     func increment() {
-        updateTime(newTime: time + config.step.minutes)
+        self.updateTime(newTime: self.time + self.config.step.minutes)
         
-        if timer != nil {
-            step = config.step
+        if self.timer != nil {
+            self.step = self.config.step
         }
     }
     
     func decrement() {
-        updateTime(newTime: time - config.step.minutes)
+        self.updateTime(newTime: self.time - self.config.step.minutes)
         
-        if timer != nil {
-            step = -config.step
+        if self.timer != nil {
+            self.step = -self.config.step
         }
     }
     
@@ -68,9 +68,9 @@ extension TimeCalculator {
 extension TimeCalculator {
     
     func beginUpdates() {
-        guard timer == nil else { return }
+        guard self.timer == nil else { return }
         
-        timer = Timer.scheduledTimer(withTimeInterval: 0.15, repeats: true, block: {
+        self.timer = Timer.scheduledTimer(withTimeInterval: 0.15, repeats: true, block: {
             [weak self]
             (_) in
             
@@ -78,13 +78,13 @@ extension TimeCalculator {
             
             sself.updateTime(newTime: sself.time + step.minutes)
         })
-        timer?.fire()
+        self.timer?.fire()
     }
     
     func stopUpdates() {
-        step = nil
-        timer?.invalidate()
-        timer = nil
+        self.step = nil
+        self.timer?.invalidate()
+        self.timer = nil
     }
     
 }
@@ -105,7 +105,7 @@ extension TimeCalculator {
             multiplier = 1
         }
         
-        updateTime(newTime: time + TimeInterval(change * 100 * multiplier).minutes)
+        self.updateTime(newTime: self.time + TimeInterval(change * 100 * multiplier).minutes)
     }
     
 }
@@ -113,7 +113,7 @@ extension TimeCalculator {
 extension TimeCalculator {
     
     func reset() {
-        updateTime(newTime: config.initial)
+        self.updateTime(newTime: self.config.initial)
     }
     
 }

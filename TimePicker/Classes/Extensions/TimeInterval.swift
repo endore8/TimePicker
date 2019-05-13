@@ -18,7 +18,7 @@ extension TimeInterval {
     
     func timeFormat(_ round: UInt = 0, type: TimePickerConfig.Time.Format = .auto) -> TimeFormat {
         let value = Int(self)
-        let period = (type == .auto ? shouldIncludePeriod : (type == .international ? false : true))
+        let period = (type == .auto ? self.shouldIncludePeriod : (type == .international ? false : true))
         let hour = (value / (60 * 60)) % 24
         let minute = value / 60 % 60
         
@@ -30,7 +30,7 @@ extension TimeInterval {
     }
     
     func formatToString() -> String {
-        let format = timeFormat()
+        let format = self.timeFormat()
         
         return "\(format.hour):\(format.minute)" + (format.period != nil ? " \(format.period!)" : "")
     }

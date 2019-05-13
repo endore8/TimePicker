@@ -24,7 +24,7 @@ final class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        updateViews()
+        self.updateViews()
     }
     
 }
@@ -32,16 +32,16 @@ final class ViewController: UIViewController {
 extension ViewController {
     
     @IBAction fileprivate func controlEvent(_ sender: Any) {
-        updateConfig()
-        updateViews()
+        self.updateConfig()
+        self.updateViews()
     }
     
     @IBAction fileprivate func reset(_ sender: Any) {
-        timePicker.reset()
+        self.timePicker.reset()
     }
     
     @IBAction fileprivate func triggerHapticFeedback(_ sender: UISwitch) {
-        timePicker.isHapticFeedbackEnabled = sender.isOn
+        self.timePicker.isHapticFeedbackEnabled = sender.isOn
     }
     
 }
@@ -49,19 +49,19 @@ extension ViewController {
 extension ViewController {
     
     fileprivate func updateConfig() {
-        timePicker.config = TimePickerConfig(
+        self.timePicker.config = TimePickerConfig(
             text: TimePickerConfig.Text.text,
             time: TimePickerConfig.Time(
-                initial: TimeInterval(Int(hourSlider.value) * 60 * 60),
-                step: TimeInterval(Int(stepSlider.value)),
-                format: formatSegment.format
+                initial: TimeInterval(Int(self.hourSlider.value) * 60 * 60),
+                step: TimeInterval(Int(self.stepSlider.value)),
+                format: self.formatSegment.format
             )
         )
     }
     
     fileprivate func updateViews() {
-        stepLabel.text = "Step \(Int(stepSlider.value)) min"
-        hourLabel.text = "Initial hour \(Int(hourSlider.value))"
+        self.stepLabel.text = "Step \(Int(self.stepSlider.value)) min"
+        self.hourLabel.text = "Initial hour \(Int(self.hourSlider.value))"
     }
     
 }
