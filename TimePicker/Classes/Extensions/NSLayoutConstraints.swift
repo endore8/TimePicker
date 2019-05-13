@@ -10,8 +10,8 @@ import Foundation
 
 extension NSLayoutConstraint {
     
-    static func horizontallyCentered(view: UIView, in superview: UIView) -> [NSLayoutConstraint] {
-        return constraints(
+    static func tp_horizontallyCentered(view: UIView, in superview: UIView) -> [NSLayoutConstraint] {
+        return self.constraints(
             withVisualFormat: "V:[superview]-(<=1)-[view]",
             options: .alignAllCenterX,
             metrics: nil,
@@ -19,8 +19,8 @@ extension NSLayoutConstraint {
         )
     }
     
-    static func verticallyCentered(view: UIView, in superview: UIView) -> [NSLayoutConstraint] {
-        return constraints(
+    static func tp_verticallyCentered(view: UIView, in superview: UIView) -> [NSLayoutConstraint] {
+        return self.constraints(
             withVisualFormat: "H:[superview]-(<=1)-[view]",
             options: .alignAllCenterY,
             metrics: nil,
@@ -28,8 +28,8 @@ extension NSLayoutConstraint {
         )
     }
     
-    static func alignHorizontally(view: UIView, trailingTo trailingView: UIView, distance: CGFloat = 0) -> [NSLayoutConstraint] {
-        return constraints(
+    static func tp_alignHorizontally(view: UIView, trailingTo trailingView: UIView, distance: CGFloat = 0) -> [NSLayoutConstraint] {
+        return self.constraints(
             withVisualFormat: "H:[view]-distance-[trailingView]",
             options: NSLayoutFormatOptions(),
             metrics: ["distance": distance],
@@ -37,8 +37,8 @@ extension NSLayoutConstraint {
         )
     }
     
-    static func alignHorizontally(view: UIView, leadingBy leadingView: UIView, distance: CGFloat = 0) -> [NSLayoutConstraint] {
-        return constraints(
+    static func tp_alignHorizontally(view: UIView, leadingBy leadingView: UIView, distance: CGFloat = 0) -> [NSLayoutConstraint] {
+        return self.constraints(
             withVisualFormat: "H:[leadingView]-distance-[view]",
             options: NSLayoutFormatOptions(),
             metrics: ["distance": distance],

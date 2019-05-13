@@ -109,7 +109,7 @@ extension TimePicker {
         switch gesture.state {
         case .began:
             calculator.beginUpdates()
-            gesture.hasUpperLocationType(in: self) ? calculator.increment() : calculator.decrement()
+            gesture.tp_hasUpperLocationType(in: self) ? calculator.increment() : calculator.decrement()
             
         case .changed:
             ()
@@ -120,7 +120,7 @@ extension TimePicker {
     }
     
     @objc fileprivate func handleTapGesture(_ gesture: UITapGestureRecognizer) {
-        gesture.hasUpperLocationType(in: self) ? calculator.increment() : calculator.decrement()
+        gesture.tp_hasUpperLocationType(in: self) ? calculator.increment() : calculator.decrement()
     }
     
 }
@@ -177,29 +177,29 @@ extension TimePicker {
         addSubview(
             colonLabel,
             constraints: (
-                NSLayoutConstraint.horizontallyCentered(view: colonLabel, in: self) +
-                NSLayoutConstraint.verticallyCentered(view: colonLabel, in: self)
+                NSLayoutConstraint.tp_horizontallyCentered(view: colonLabel, in: self) +
+                NSLayoutConstraint.tp_verticallyCentered(view: colonLabel, in: self)
             )
         )
         addSubview(
             hourLabel,
             constraints: (
-                NSLayoutConstraint.alignHorizontally(view: hourLabel, trailingTo: colonLabel) +
-                NSLayoutConstraint.verticallyCentered(view: hourLabel, in: self)
+                NSLayoutConstraint.tp_alignHorizontally(view: hourLabel, trailingTo: colonLabel) +
+                NSLayoutConstraint.tp_verticallyCentered(view: hourLabel, in: self)
             )
         )
         addSubview(
             timeLabel,
             constraints: (
-                NSLayoutConstraint.alignHorizontally(view: timeLabel, leadingBy: colonLabel) +
-                NSLayoutConstraint.verticallyCentered(view: timeLabel, in: self)
+                NSLayoutConstraint.tp_alignHorizontally(view: timeLabel, leadingBy: colonLabel) +
+                NSLayoutConstraint.tp_verticallyCentered(view: timeLabel, in: self)
             )
         )
         addSubview(
             periodLabel,
             constraints: (
-                NSLayoutConstraint.alignHorizontally(view: periodLabel, leadingBy: timeLabel, distance: 8) +
-                NSLayoutConstraint.verticallyCentered(view: periodLabel, in: self)
+                NSLayoutConstraint.tp_alignHorizontally(view: periodLabel, leadingBy: timeLabel, distance: 8) +
+                NSLayoutConstraint.tp_verticallyCentered(view: periodLabel, in: self)
             )
         )
     }

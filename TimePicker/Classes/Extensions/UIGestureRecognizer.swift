@@ -14,12 +14,12 @@ extension UIGestureRecognizer {
         case upper, lower
     }
     
-    func locationType(in view: UIView) -> LocationType {
-        return location(in: view).y < view.bounds.height / 2 ? .upper : .lower
+    func tp_locationType(in view: UIView) -> LocationType {
+        return self.location(in: view).y < view.bounds.height / 2 ? .upper : .lower
     }
     
-    func hasUpperLocationType(in view: UIView) -> Bool {
-        return locationType(in: view) == .upper
+    func tp_hasUpperLocationType(in view: UIView) -> Bool {
+        return self.tp_locationType(in: view) == .upper
     }
     
 }
