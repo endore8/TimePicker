@@ -1,10 +1,10 @@
 Pod::Spec.new do |spec|
   spec.name = "TimePicker"
-  spec.version = "0.0.4"
+  spec.version = "0.0.5"
   spec.summary = "Better time picker for iOS"
   spec.homepage = "https://github.com/Endore8/TimePicker"
   spec.license = { type: 'MIT', file: 'LICENSE' }
-  spec.authors = { "Oleh Stasula" => 'oleh.stasula@gmail.com' }
+  spec.authors = { "Oleh Stasula" => 'endore8@gmail.com' }
 
   spec.platform = :ios, "10.0"
   spec.requires_arc = true
