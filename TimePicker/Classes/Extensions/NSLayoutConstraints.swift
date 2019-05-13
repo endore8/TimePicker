@@ -31,7 +31,7 @@ extension NSLayoutConstraint {
     static func tp_alignHorizontally(view: UIView, trailingTo trailingView: UIView, distance: CGFloat = 0) -> [NSLayoutConstraint] {
         return self.constraints(
             withVisualFormat: "H:[view]-distance-[trailingView]",
-            options: NSLayoutFormatOptions(),
+            options: NSLayoutConstraint.FormatOptions(),
             metrics: ["distance": distance],
             views: ["view": view, "trailingView": trailingView]
         )
@@ -40,7 +40,7 @@ extension NSLayoutConstraint {
     static func tp_alignHorizontally(view: UIView, leadingBy leadingView: UIView, distance: CGFloat = 0) -> [NSLayoutConstraint] {
         return self.constraints(
             withVisualFormat: "H:[leadingView]-distance-[view]",
-            options: NSLayoutFormatOptions(),
+            options: NSLayoutConstraint.FormatOptions(),
             metrics: ["distance": distance],
             views: ["view": view, "leadingView": leadingView]
         )

@@ -6,9 +6,9 @@ Better TimePicker for iOS
 
 ## Requirements
 
-- Swift 4.0
+- Swift 5.0
 - iOS 10.0+
-- Xcode 9+
+- Xcode 10.2+
 
 ## Installation
 
